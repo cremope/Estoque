@@ -9,7 +9,13 @@ from . import crud as operacoes
 from .config import CORS_ORIGINS, TEST_API_KEY
 from .seed import criar_dados_iniciais
 
-aplicacao = FastAPI(title="API de Estoque", version="1.0.0")
+aplicacao = FastAPI(
+    title="API de Estoque",
+    version="1.0.0",
+    docs_url="/docs",          # Swagger UI
+    redoc_url="/redoc",        # ReDoc
+    openapi_url="/openapi.json"
+)
 
 # CORS
 aplicacao.add_middleware(
