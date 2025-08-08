@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: api-de-estoque
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.principal:aplicacao --host 0.0.0.0 --port 10000
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: CHAVE_API_TESTE
+        sync: false
+      - key: CORS_ORIGENS
+        sync: false
