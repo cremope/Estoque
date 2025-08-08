@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from .database import Base, motor, obter_sessao, SessaoLocal
 from .models import Produto
 from .schemas import ProdutoCriar, ProdutoAtualizar, ProdutoResposta
-from . import operacoes
+from . import crud as operacoes
 from .config import CORS_ORIGENS, CHAVE_API_TESTE
 from .seed import criar_dados_iniciais
 
