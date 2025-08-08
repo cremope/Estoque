@@ -2,6 +2,7 @@ services:
   - type: web
     name: api-de-estoque
     env: python
+    pythonVersion: 3.12.10
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.principal:aplicacao --host 0.0.0.0 --port 10000
