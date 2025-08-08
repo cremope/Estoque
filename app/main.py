@@ -6,7 +6,7 @@ from .database import Base, motor, obter_sessao, SessaoLocal
 from .models import Produto
 from .schemas import ProdutoCriar, ProdutoAtualizar, ProdutoResposta
 from . import crud as operacoes
-from .config import CORS_ORIGENS, CHAVE_API_TESTE
+from .config import CORS_ORIGINS, TEST_API_KEY
 from .seed import criar_dados_iniciais
 
 aplicacao = FastAPI(title="API de Estoque", version="1.0.0")
@@ -14,7 +14,7 @@ aplicacao = FastAPI(title="API de Estoque", version="1.0.0")
 # CORS
 aplicacao.add_middleware(
     CORSMiddleware,
-    allow_origins=CORS_ORIGENS,
+    allow_origins=CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -89,7 +89,7 @@ def ajustar_quantidade_endpoint(produto_id: int, quantidade: int, db: Session = 
 
 @aplicacao.post("/teste/resetar", tags=["teste"])
 def resetar_base_endpoint(db: Session = Depends(obter_sessao), x_api_key: str | None = Header(None)):
-    if not CHAVE_API_TESTE or x_api_key != CHAVE_API_TESTE:
+    if not TEST_API_KEY or x_api_key != TEST_API_KEY:
         raise HTTPException(status_code=401, detail="Não autorizado")
     operacoes.resetar_base(db)
     return {"mensagem": "Base limpa"}
