@@ -47,9 +47,11 @@ Readme.md        # Readme
 }
 ```
 
+**Obs:** SKU é a sigla para Stock Keeping Unit (Unidade de Manutenção de Estoque).
+
 **Erro (padronizado em pt-BR):**
 ```bash
-- 422→  { "codigo": 422, "mensagem": "O campo 'preco' não é um número válido" }
+- 422 → { "codigo": 422, "mensagem": "O campo 'preco' não é um número válido" }
 - 404 → { "codigo": 404, "mensagem": "Produto não encontrado" }
 - 409 → { "codigo": 409, "mensagem": "SKU já existente" }
 - 401 → { "codigo": 401, "mensagem": "Não autorizado" }
@@ -80,13 +82,17 @@ POST /teste/resetar → limpa base (apenas testes)
 
 **Render**
 
-[Render](https://render.com/) é uma plataforma de nuvem para publicar APIs, web apps e bancos de dados sem complicação.
+[Render](https://render.com/) é uma plataforma de nuvem para publicar APIs, web apps e bancos de dados sem complicação. 
 
 Neste projeto:
 - Web Service (API FastAPI)
 - PostgreSQL (Render Managed DB)
 - Internal Database URL → uso no Render
 - External Database URL → uso local
+- Integração com o GitHub
+
+
+**Importante:** Todo deploy ocorre automaticamente quando a branch main é alterada. Portanto, caso ocorra alguma alteração de código na branch main, é iniciada uma nova build.
 
 **Modelo de dados**
 
@@ -124,3 +130,21 @@ o comando Uvicorn não abre o navegador automaticamente. Ele só mostra a URL on
 -   **ReDoc**: `http://127.0.0.1:8000/redoc`
 
 **Obs:** A Base URL pode ser usada no Postman, navegador para executar os endpoints.
+
+## ScreenShots
+
+**Render Dashboard:**
+
+<img src="https://github.com/cremope/Estoque/blob/main/ScreenShots/Dashboard_Render.png" width="400" /> 
+
+**Render deploy/buid:**
+
+<img src="https://github.com/cremope/Estoque/blob/main/ScreenShots/Deploy_Render.png" width="400" /> 
+
+**Documentação Swagger:**
+
+<img src="https://github.com/cremope/web-java-playwright-cucumber/blob/main/ScreenShots/Documentacao_Swagger.png" width="400" />
+
+**Documentação Redoc:**
+
+<img src="https://github.com/cremope/web-java-playwright-cucumber/blob/main/ScreenShots/Documentacao_Redoc.png" width="400" /> 
