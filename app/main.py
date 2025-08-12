@@ -218,7 +218,7 @@ def resetar_base_endpoint(
     db: Session = Depends(obter_sessao),
     x_api_key: str | None = Header(None)
 ):
-    if not CHAVE_API_TESTE or x_api_key != CHAVE_API_TESTE:
+    if not TEST_API_KEY or x_api_key != TEST_API_KEY:
         raise HTTPException(status_code=401, detail="Não autorizado")
     operacoes.resetar_base(db)
     return {"mensagem": "Base limpa"}
