@@ -146,7 +146,10 @@ def listar_produtos_endpoint(
     "/produtos/{produto_id}",
     response_model=ProdutoResposta,
     tags=["produtos"],
-    responses={404: {"model": ErroResposta}}
+    responses={
+        404: {"model": ErroResposta},
+        422: {"model": ErroResposta}
+    }
 )
 def buscar_produto_endpoint(produto_id: int, db: Session = Depends(obter_sessao)):
     produto = operacoes.buscar_produto(db, produto_id)
@@ -180,7 +183,11 @@ def atualizar_produto_endpoint(produto_id: int, dados: ProdutoAtualizar, db: Ses
     "/produtos/{produto_id}",
     status_code=204,
     tags=["produtos"],
-    responses={404: {"model": ErroResposta}}
+    responses={
+        404: {"model": ErroResposta},
+        422: {"model": ErroResposta}
+    }
+
 )
 def deletar_produto_endpoint(produto_id: int, db: Session = Depends(obter_sessao)):
     produto = operacoes.buscar_produto(db, produto_id)
@@ -212,7 +219,10 @@ def ajustar_quantidade_endpoint(
 @aplicacao.post(
     "/teste/resetar",
     tags=["teste"],
-    responses={401: {"model": ErroResposta}}
+    responses={
+        401: {"model": ErroResposta},
+        422: {"model": ErroResposta}
+    }
 )
 def resetar_base_endpoint(
     db: Session = Depends(obter_sessao),
