@@ -143,7 +143,7 @@ o comando Uvicorn não abre o navegador automaticamente. Ele só mostra a URL on
 
 **Documentação Swagger:**
 
-<img src="https://github.com/cremope/Estoquer/blob/main/ScreenShots/Documentacao_Swagger.png" width="400" />
+<img src="https://github.com/cremope/Estoque/blob/main/ScreenShots/Documentacao_Swagger.png" width="400" />
 
 **Documentação Redoc:**
 
