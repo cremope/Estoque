@@ -4,7 +4,9 @@
 API REST para gerenciamento de produtos em estoque, construída com FastAPI, SQLAlchemy e PostgreSQL. Inclui documentação automática (Swagger e ReDoc), paginação, validações e retornos de erro padronizados em português.
 
 Produção: https://estoque-6ldl.onrender.com
+
 Swagger: https://estoque-6ldl.onrender.com/docs
+
 ReDoc: https://estoque-6ldl.onrender.com/redoc
 
 ---
@@ -18,6 +20,8 @@ ReDoc: https://estoque-6ldl.onrender.com/redoc
 - psycopg – driver PostgreSQL
 - python-dotenv – variáveis de ambiente
 - Render – deploy da API e do banco PostgreSQL
+
+---
 
 **Estrutura (resumo)**
 ```bash
@@ -33,6 +37,7 @@ app/
 Readme.md        # Readme
 ```
 
+---
 
 **Padrões de resposta**
 
@@ -57,6 +62,9 @@ Readme.md        # Readme
 - 401 → { "codigo": 401, "mensagem": "Não autorizado" }
 - 500 → { "codigo": 500, "mensagem": "Erro interno no servidor." }
 ```
+
+---
+
 **Endpoints**
 
 Base URL (produção): https://estoque-6ldl.onrender.com
@@ -80,6 +88,8 @@ POST /produtos/{produto_id}/ajustar?quantidade=5 → ajusta estoque
 POST /teste/resetar → limpa base (apenas testes)
 ```
 
+---
+
 **Render**
 
 [Render](https://render.com/) é uma plataforma de nuvem para publicar APIs, web apps e bancos de dados sem complicação. 
@@ -94,6 +104,8 @@ Neste projeto:
 
 **Importante:** Todo deploy ocorre automaticamente quando a branch main é alterada. Portanto, caso ocorra alguma alteração de código na branch main, é iniciada uma nova build.
 
+---
+
 **Modelo de dados**
 
 Tabela produtos no PostgreSQL:
@@ -104,6 +116,8 @@ Tabela produtos no PostgreSQL:
 - preco (decimal ≥ 0)
 - quantidade (int ≥ 0)
 ```
+
+---
 
 **Rodando localmente**
 
@@ -116,7 +130,9 @@ pip install -r requirements.txt
 ```
 Utilize esses valores no arquivo .env:
 **DATABASE_URL**=postgresql://estoque_az2q_user:yPuE0M335JBdObC1u7ibqNL60vr5XJok@dpg-d2b75uje5dus73ca5l20-a.oregon-postgres.render.com/estoque_az2q
+
 **TEST_API_KEY**=e25256b2e50ccfcb9baa5d80f3077bb6
+
 **CORS_ORIGINS**=https://cremope.github.io/RCremonez
 
 Execute o comando abaixo para subir a API:
@@ -130,6 +146,8 @@ o comando Uvicorn não abre o navegador automaticamente. Ele só mostra a URL on
 -   **ReDoc**: `http://127.0.0.1:8000/redoc`
 
 **Obs:** A Base URL pode ser usada no Postman, navegador para executar os endpoints.
+
+---
 
 ## ScreenShots
 
